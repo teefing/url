@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil'
 import { URIState } from '../atoms'
 
 const Input = (props: React.ComponentProps<typeof AntdInput>): JSX.Element =>
-  <AntdInput bordered={true} className="border-x-transparent border-t-transparent focus:border-x-transparent focus:border-t-transparent hover:border-x-transparent hover:border-t-transparent focus:shadow-none" {...props} />
+  <AntdInput bordered={true} className="bg-transparent border-x-transparent border-t-transparent focus:border-x-transparent focus:border-t-transparent hover:border-x-transparent hover:border-t-transparent focus:shadow-none" {...props} />
 
 const ParseResolver = () => {
   const [form] = Form.useForm()
@@ -22,7 +22,7 @@ const ParseResolver = () => {
   }, [])
 
   return <div className="p-5">
-    <Card className="rounded-md" bodyStyle={{ padding: '10px' }} hoverable>
+    <Card className="rounded-md relative before:absolute before:top-1 before:right-5 before:text-4xl before:font-bold before:text-gray-300 before:italic before:pointer-events-none before:select-none before:content-['URI']" bodyStyle={{ padding: '10px' }} hoverable>
       <Form form={form} onValuesChange={onValuesChange}>
         <Row>
           <Col span={11} offset={1}>

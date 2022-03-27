@@ -1,3 +1,4 @@
+import qs from 'qs'
 import type { URI } from './types'
 
 const URIREG = /^(?:([^:/?#]+):)?(?:\/\/([^/?#]*))?([^?#]*)(?:\?([^#]*))?(?:#(.*))?/
@@ -46,4 +47,25 @@ export const generateURI = (uriObj: URI) => {
   const queryStr = query ? `?${query}` : ''
   const fragmentStr = fragment ? `#${fragment}` : ''
   return `${protocolStr}${authStr}${hostStr}${portStr}${pathStr}${queryStr}${fragmentStr}`
+}
+
+export const parseQuery = (query: string) => {
+  if (!query) return {}
+  const res = qs.parse(query)
+  return res
+}
+
+export const stringifyQuery = (query: Record<string, any>) => {
+  if (!query) return ''
+  const res = qs.stringify(query)
+  return res
+}
+
+export const listToObject = (list: any[]) => {
+  const res: Record<string, any> = {}
+  list.forEach((item) => {
+    const [k, v] = item
+    res[k] = v
+  })
+  return res
 }
