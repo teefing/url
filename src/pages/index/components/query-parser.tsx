@@ -10,7 +10,7 @@ const Input = (props: React.ComponentProps<typeof AntdInput>): JSX.Element =>
   <AntdInput bordered={true} className="bg-transparent border-x-transparent border-t-transparent focus:border-x-transparent focus:border-t-transparent hover:border-x-transparent hover:border-t-transparent focus:shadow-none" {...props} />
 
 const QueryParser = () => {
-  const queryObject = useRecoilValue(queryObjectState)
+  const queryObject = useRecoilValue<Record<string, any>>(queryObjectState)
   const [URI, setURI] = useRecoilState(URIState)
   const [list, setList] = useState<[string, string][]>([])
 
