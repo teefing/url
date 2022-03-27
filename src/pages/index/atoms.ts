@@ -4,9 +4,9 @@ import type { URI } from './types'
 export const URIState = atom<URI>({
   key: 'URIState',
   default: {
-    protocol: '',
+    protocol: 'https',
     auth: '',
-    host: '',
+    host: 'www.google.com',
     port: '',
     path: '',
     query: '',
