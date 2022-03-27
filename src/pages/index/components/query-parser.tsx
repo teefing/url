@@ -1,6 +1,7 @@
 
 import { ArrowRightOutlined, MinusCircleOutlined, PlusCircleOutlined } from '@ant-design/icons'
 import { Input as AntdInput, Card, Col, Row } from 'antd'
+import type { ChangeEvent } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { URIState } from '../atoms'
 import { queryObjectState } from '../selectors'
@@ -30,7 +31,7 @@ const QueryParser = () => {
     })
   }, [list])
 
-  const onChangeKey = (index: number) => (e: any) => {
+  const onChangeKey = (index: number) => (e: ChangeEvent<HTMLInputElement>) => {
     const item = list[index]
     item[0] = e.target.value
     list.splice(index, 1, item)
@@ -38,7 +39,7 @@ const QueryParser = () => {
     onValuesChange()
   }
 
-  const onChangeValue = (index: number) => (e: any) => {
+  const onChangeValue = (index: number) => (e: ChangeEvent<HTMLInputElement>) => {
     const item = list[index]
     item[1] = e.target.value
     list.splice(index, 1, item)
