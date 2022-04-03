@@ -1,7 +1,5 @@
 import { Layout } from 'antd'
-import { useRecoilValue } from 'recoil'
-import { composedURIState } from '../selectors'
-import ParseResolver from './parser-resolver'
+import ParseResolver, { SubParseResolver } from './parser-resolver'
 import Qrcode from './qrcode'
 import QueryParser from './query-parser'
 
@@ -17,6 +15,7 @@ const Editor = ({
     <Content>
       <ParseResolver />
       <QueryParser />
+      <SubParseResolver />
     </Content>
     <Sider width={500} className="p-10 bg-emerald-500">
       <Qrcode/>

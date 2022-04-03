@@ -5,6 +5,11 @@ const URIREG = /^(?:([^:/?#]+):)?(?:\/\/([^/?#]*))?([^?#]*)(?:\?([^#]*))?(?:#(.*
 
 const AUTH_HOST_PORT_REG = /^(?:([\w:]*)@)?([^:]*)?(?::(.*))?$/
 
+export const isURI = (uri: string) => {
+  const res = uri.match(URIREG)
+  return res && res.slice(0, 4).every(i => i !== undefined)
+}
+
 export const parseURI = (uri: string) => {
   let protocol = ''; let auth = ''; let host = ''; let port = ''; let path = ''; let query = ''; let fragment = ''
 
