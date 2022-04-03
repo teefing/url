@@ -66,7 +66,12 @@ const QueryParser = () => {
     })
   }, [list])
 
-  const onClickArrow = ({ isActive, key, value, index }) => () => {
+  const onClickArrow = ({ isActive, key, value, index }: {
+    isActive: boolean
+    key: string
+    value: string
+    index: number
+  }) => () => {
     if (isActive) {
       setChosenQuery({
         index: -1,
